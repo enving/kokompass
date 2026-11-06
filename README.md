@@ -51,7 +51,7 @@ nach einer Bewertung klingt und der Kompass dazu schon etwas weiß.
   Versionierung haben; sie ist nie öffentlich.
 - **Eine Firma:** [kobetriebssystem](https://github.com/enving/kobetriebssystem) bindet kokompass unter `user/`
   ein, als persönliche Ebene neben dem gemeinsamen Betriebssystem. Wie beide Ebenen voneinander lernen, ist dort
-  noch offen (Lückenregister L20–L22 in `PRD.md`).
+  noch offen.
 
 ## Herkunft
 
@@ -62,9 +62,18 @@ nach größeren Änderungen, Automatik erst nach Vertrauen (`pruefung/fragen.md`
 
 ## Stand
 
-Version 0.1. Noch nicht enthalten, weil an die erste Instanz gebunden: Wissenseingang aus einem Obsidian-Vault,
+Version 0.1. kokompass ist **kein Paket** (kein pip/npm): Man bindet das Repo als Git-Submodul ein, die Version ist
+der Commit, auf den das Submodul zeigt; Updates mit `git submodule update --remote kern`. Ein Paket lohnt sich erst,
+wenn der Code wächst. Noch nicht enthalten, weil an die erste Instanz gebunden: Wissenseingang aus einem Obsidian-Vault,
 Lagebild-Bericht, Export. Die erste Instanz stellt erst auf dieses Repo um; was sich dabei als allgemein erweist,
 kommt per PR hierher.
+
+## Die Ko-Familie
+
+kokompass gehört zur Ko-Familie von Digitalalchemisten, offene Werkzeuge für Arbeit mit KI:
+[KoBetriebssystem](https://github.com/enving/kobetriebssystem) (gemeinsames Betriebssystem einer Firma, bindet
+kokompass ein), [Koprotokoll](https://github.com/enving/Koprotokoll) und
+[Kodiktat](https://github.com/enving/kodiktat).
 
 ## Lizenz
 
