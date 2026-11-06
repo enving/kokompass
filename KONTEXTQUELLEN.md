@@ -43,6 +43,7 @@ Erst wenn Stufe 2 von Hand verlässlich klappt, wird sie automatisiert (METHODE.
 | Kalender | Termine der nächsten zwei Wochen | Export oder Konnektor | nur lesen |
 | Browser | Lesezeichen, Ausschnitte | Clipper in die Notiz-App | keine Verlaufsüberwachung |
 | Repos, Issues | eigene offene Issues, Erwähnungen | `gh` | Doku bleibt im Repo, im Kompass nur Verweis |
+| Frühere Agenten-Gespräche (Claude Code, Codex, Chat-Apps) | eigene Entscheidungen, Zitate, Korrekturen an Agenten („nein, so nicht“), die nie eingetragen wurden | Sitzungsverläufe der Werkzeuge lokal, Chat-Apps per Export | enthalten Zugangsdaten und Fremdinhalte: nur Fundstelle und eigene Aussagen übernehmen, nie roh kopieren; Korrekturen sind gute Prüffälle für den Dirigenten |
 
 ## Der Dirigent
 
