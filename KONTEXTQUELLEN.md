@@ -74,5 +74,14 @@ keinen Code und keine Mail. Er sorgt dafür, dass jeder Eingang an der richtigen
    Laufzeit mit Gedächtnis und Zeitplan. Die Laufzeit ist austauschbar; der Auftrag steht in der Instanz, nicht in
    der Laufzeit.
 
-Wie ein persönlicher Dirigent später mit dem Dirigenten einer Firma spricht, ist offen
-(kobetriebssystem, Lückenregister L21).
+## Offen
+
+- **Wo Aufgaben zentral leben.** Aufgaben entstehen an vielen Stellen: im Kompass (`aufgaben/`), in Übergabedateien
+  und Issues der Repos, in der Notiz-App. Der Dirigent sieht sie nur, wenn sie als Eingang erfasst werden. Drei Wege
+  sind denkbar: ein Kanban-Board in der Agenten-Laufzeit, Issues mit einem Projektboard über alle Repos als einziger
+  Speicher, oder der Dirigent speichert nichts selbst, liest alle Orte und führt nur eine Tagesliste mit Verweisen.
+  Der dritte Weg legt keinen neuen Speicher an; persönliche Aufgaben bleiben dann im Kompass, Projektaufgaben im
+  Repo. Noch nicht erprobt.
+- **Wie der Dirigent besser wird.** Jeder Vorschlag, den die Person ändert oder verwirft, ist ein Prüffall in
+  `pruefung/fragen.md`. Wie viele Fälle es braucht, bis ein Takt erlaubt ist, ist offen.
+- **Wie ein persönlicher Dirigent mit dem Dirigenten einer Firma spricht** (kobetriebssystem, Lückenregister L21).
