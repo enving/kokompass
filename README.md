@@ -15,6 +15,7 @@ erfundenes Beispiel.
 kokompass/
 ├── METHODE.md        # die Regeln (zuständige Quelle): Knotentypen, Pflichtfelder, Regeln für Agenten
 ├── BEITRAGEN.md      # wie Verbesserungen aus dem eigenen Kompass zurückkommen
+├── KONTEXTQUELLEN.md # Quellen anbinden (Notizen, Fotos, Memos …) und die Rolle des Dirigenten
 ├── vorlage/          # Startgerüst einer eigenen Instanz
 ├── beispiel/         # erfundene Person „Mara“, zeigt jeden Knotentyp
 ├── werkzeuge/        # kompass (Einstieg) und kompass.py (Logik, nur Standardbibliothek)
@@ -32,7 +33,8 @@ export KOMPASS_DIR="$PWD"        # dauerhaft in die Shell-Konfiguration
 kompass                          # Startausgabe
 ```
 
-Dann `person/ich.md` und `person/ziele.md` ausfüllen. Damit jede Sitzung mit dem Stand beginnt:
+Dann `person/ich.md` und `person/ziele.md` ausfüllen und in `kontextquellen.md` eintragen, woraus der Kompass
+lernen soll ([Anleitung](KONTEXTQUELLEN.md)). Damit jede Sitzung mit dem Stand beginnt:
 
 | Werkzeug | Einbindung |
 |---|---|

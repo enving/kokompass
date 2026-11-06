@@ -69,3 +69,9 @@ Listen (nach Cole Medins „4 C“, siehe [README](README.md#herkunft)):
 
 Automatische Läufe kommen erst, wenn eine Aufgabe von Hand verlässlich klappt, und jeder Lauf meldet, was er getan
 hat.
+
+## Kontextquellen und Dirigent
+
+Wie Notizen, Fotos, Memos und andere Quellen in den Kompass kommen und wer sie einordnet, steht in
+[KONTEXTQUELLEN.md](KONTEXTQUELLEN.md). Kurz: Erfassen schreibt nur ins Register, Einordnen macht Vorschläge,
+übernommen wird erst nach Ja der Person.
