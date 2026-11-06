@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Einstieg für jedes Werkzeug (Claude Code, Codex, OpenCode, Vibe, Terminal). Die Logik steht nur in kompass.py.
+# Einrichten: Verweis in den PATH legen, z. B. ln -s "$PWD/werkzeuge/kompass" ~/.local/bin/kompass
+# und KOMPASS_DIR auf den eigenen Kompass setzen.
+set -euo pipefail
+hier="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+exec python3 "$hier/kompass.py" "$@"
