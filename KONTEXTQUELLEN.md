@@ -60,6 +60,8 @@ die Antwort schon im Repo, etwa wie ein Dienst eingerichtet ist.
   Agenten, Issue im zuständigen Repo.
 - Nach Ja der Person Aufgaben an Agenten übergeben und deren Rückmeldung als Beleg verweisen.
 - Einmal je Lauf melden, was er getan hat und was auf die Person wartet.
+- Wenn eine Rückmeldung eine offene Lücke füllt oder Aufbau und Abläufe ändert, eine Folgeaufgabe vorschlagen: die
+  zugehörigen Darstellungen (Skizzen, Diagramme, Übersichtsfolien) nachziehen. Wo sie liegen, steht beim Thema im Kompass.
 
 **Er darf nicht:**
 
