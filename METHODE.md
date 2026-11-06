@@ -56,6 +56,9 @@ Weitere Ordner sind erlaubt (etwa `netzwerk/`, `stationen/`, `aussendungen/`). `
    `kompass sync` und `kompass pruefen` laufen lassen, die eigenen Dateien committen.
 10. **Nichts Vertrauliches nach außen.** Was unter `privat/` liegt oder `vertraulich: ja` trägt, liest kein Agent
     außerhalb der Person und es geht in keinen Beitrag.
+11. **Vor dem Schreiben in ein Repo dessen Sichtbarkeit kennen.** Jede Instanz führt eine Liste (Vorlage `repos.md`), welche Repos öffentlich
+    sind und was hinein darf. In öffentliche Repos (auch dieses) nur Verallgemeinertes und erfundene Beispiele, nie
+    Inhalte, Namen, Pfade oder echte Kontextquellen einer Instanz.
 
 ## Prüfen, ob der Kompass trägt
 
