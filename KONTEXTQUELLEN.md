@@ -152,6 +152,45 @@ Protokoll; die mitgelieferte CLI implementiert noch keinen Hintergrunddienst ode
   Budgetfreigabe erlaubt nach erneutem Abgleich die Wiederaufnahme.
 - Eine vorhandene Fachautomation arbeitet noch: der Dirigent beginnt keine konkurrierende Ausführung.
 
+## Lernschleife: der Dirigent wird mit jedem Lauf besser
+
+Der Dirigent lernt nicht, indem ein Modell sich ändert, sondern indem **Auftrag, Regel und Prüffälle besser werden**.
+Das geschieht in jedem Lauf nach demselben kleinen Ablauf, damit es nicht vom Zufall oder von der Erinnerung eines
+Agenten abhängt. Die Person behält die Hoheit: Verbessert wird das Verfahren, nie Ziele, Befugnisse, Budgets oder
+Sichtbarkeit.
+
+1. **Beobachten.** Am Ende jedes Laufs hält der Dirigent höchstens drei Beobachtungen fest, jeweils mit Fundstelle,
+   nie als Rohtext: ein eigener Fehler, eine Korrektur der Person, ein Blocker, ein beinahe doppelter Start, eine
+   überholte Übergabe, ein Schritt, der unnötig lange gedauert hat. Ein Lauf ohne Beobachtung schreibt „keine“ und
+   sagt, was er dafür geprüft hat.
+2. **Einordnen.** Zu jeder Beobachtung die zuständige vorhandene Regel finden (Instanzauftrag, Skill, diese Methode).
+   Passt keine, ist das eine belegte Lücke. Eine neue Regel an einer zweiten Stelle entsteht nie; es wird die
+   zuständige Quelle ergänzt, abhängige Anweisungen verweisen darauf.
+3. **Eine Verbesserung je Lauf.** Die kleinste Änderung an der zuständigen Quelle, die die Beobachtung behebt. Mehrere
+   Beobachtungen ergeben mehrere Vorschläge, aber höchstens eine umgesetzte Änderung je Lauf; die übrigen bleiben als
+   offener Prüfpunkt stehen. So bleibt eine Regression einer Änderung zuordenbar.
+4. **Prüffall dazu.** Jede Änderung bekommt einen wiederholbaren Prüffall: Ausgangslage, erwartetes Verhalten, woran
+   man es erkennt. Beispiel (erfunden): Eine Übergabe nennt einen Schritt als offen, das zugehörige Issue ist
+   geschlossen; erwartet wird kein Neustart und ein vermerkter Widerspruch.
+5. **Im nächsten Lauf nachprüfen.** Der nächste Lauf prüft die Prüffälle der letzten Änderungen gegen sich selbst.
+   Kehrt der Fehler trotz Änderung wieder, war die Ursache falsch eingeordnet. Entsteht ein neuer Fehler, wird die
+   Änderung zurückgenommen und als Befund festgehalten. Technische Verbesserungen werden so bei Regression revertiert.
+6. **Verallgemeinern.** Hat sich eine Änderung über mehrere Läufe ohne Regression bewährt, ist sie ein Kandidat für
+   die Vorlage ([BEITRAGEN.md](BEITRAGEN.md)): verallgemeinert, ohne Einzelfall, und nur mit Ja der Person.
+
+Wo die Beobachtungen und Prüffälle liegen, legt die Instanz in ihrem Dirigentenauftrag fest; die Methode verlangt dafür
+keine zusätzliche Datei und keinen zweiten Aufgabenspeicher. Ein bestehender Laufbericht oder ein Fragenregister
+genügt, solange Beobachtung, Änderung, Prüffall und Nachprüfung dort zusammenfinden.
+
+### Prüffälle für die Lernschleife
+
+- Ein Lauf endet ohne Beobachtung und ohne Vermerk, was geprüft wurde: unvollständig.
+- Zwei Beobachtungen ergeben zwei Änderungen im selben Lauf: nur eine wird umgesetzt, die andere bleibt Vorschlag.
+- Eine Änderung führt zu einem neuen Fehler: sie wird zurückgenommen, nicht durch eine weitere Regel überdeckt.
+- Eine Beobachtung verlangt mehr Befugnisse oder ein größeres Budget: das ist ein Vorschlag an die Person, keine
+  Änderung des Dirigenten.
+- Dieselbe Regel steht nach der Änderung an zwei Stellen: die Kopie wird entfernt und durch einen Verweis ersetzt.
+
 ## Offen
 
 - **Wo Aufgaben zentral leben.** Aufgaben entstehen an vielen Stellen: im Kompass (`aufgaben/`), in Übergabedateien
@@ -161,6 +200,7 @@ Protokoll; die mitgelieferte CLI implementiert noch keinen Hintergrunddienst ode
   Projektboard), Persönliches bleibt im Kompass. Wer welche Issues bearbeitet (Label je Zuständigkeit, Agenten-
   Sitzung im Repo, später ein Board in der Agenten-Laufzeit), ist noch nicht erprobt. Alternativen: Kanban-Board in
   der Agenten-Laufzeit als Speicher, oder Issues als einziger Speicher.
-- **Wie der Dirigent besser wird.** Jeder Vorschlag, den die Person ändert oder verwirft, ist ein Prüffall in
-  `pruefung/fragen.md`. Wie viele Fälle es braucht, bis ein Takt erlaubt ist, ist offen.
+- **Wie viele Läufe eine Änderung bestehen muss.** Der Ablauf steht oben (Lernschleife). Jeder Vorschlag, den die
+  Person ändert oder verwirft, ist zusätzlich ein Prüffall in `pruefung/fragen.md`. Offen ist, nach wie vielen
+  Läufen ohne Regression eine Änderung als bewährt gilt und zur Vorlage hochgeht.
 - **Wie ein persönlicher Dirigent mit dem Dirigenten einer Firma spricht** (kobetriebssystem, Lückenregister L21).
