@@ -13,7 +13,11 @@ Jeder Kompass ist privat. Was sich darin bewährt, soll trotzdem allen helfen. D
    das sich bewährt. Er trägt es in `beitraege.md` der eigenen Instanz ein, mit Beleg, der dort bleibt.
 2. **Verallgemeinern.** Ohne Personen-, Kunden- und Gesundheitsdaten, ohne Namen und Einzelfall, sodass es für jede
    Person gilt und nicht für diese eine.
-3. **Vorlegen.** Die Person sagt Ja, Nein oder „nur bei mir“. Ohne Ja geht nichts hoch.
+3. **Vorlegen.** Die Person sagt Ja, Nein oder „nur bei mir“. Ohne Ja geht nichts hoch. Die Person kann ein **Dauer-Ja
+   mit Rhythmus** geben (zum Beispiel einmal pro Woche): Der Dirigent sammelt dann in diesem Takt alle bewährten
+   Verbesserungen der Instanz, verallgemeinert sie (Schritt 2) und prüft sie (Schritt 4). Das Dauer-Ja ersetzt weder die
+   Verallgemeinerung noch die Prüfung; was nicht verallgemeinerbar ist, bleibt in der Instanz. Der Rhythmus steht im
+   Dirigentenauftrag der Instanz, nicht in einem zusätzlichen Zeitplan.
 4. **Prüfen.** Vor dem Push: `python3 -m unittest discover tests` und eine Suche nach privaten Begriffen der
    eigenen Instanz (Namen aus `person/`, Netzwerk, Auftraggeber, eigene Pfade) gegen den Diff. Erwartet: 0 Treffer.
    Die CI prüft zusätzlich mit gitleaks.
