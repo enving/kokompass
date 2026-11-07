@@ -120,6 +120,9 @@ Quelle oder der Abschnitt „Nächster Schritt“ in einer alten Übergabe erwei
    nachführen; anschließend einen weiteren gedeckten Schritt übernehmen oder den Auftrag abschließen.
 7. **Begrenzt wiederholen.** Gleicher Fehler ohne neuen Befund, ausgeschöpftes Budget oder ein fehlender Zugang
    stoppt den betroffenen Strang. Kein rekursiver Neustart, Kontowechsel oder zweiter Bearbeiter als Umgehung.
+   Ein so beendeter Strang wird erst bei nachweislich geänderter Blockierbedingung oder erneuter ausdrücklicher
+   Beauftragung beziehungsweise Budgetfreigabe wieder aufgenommen. Vergangene Zeit und eine alte Rückmeldung
+   allein reichen dafür nicht; vor der Wiederaufnahme werden Auftrag, Blocker und Budget erneut geprüft.
    Unabhängige zulässige Aufgaben können weiterlaufen. Die Person erhält eine konkrete Ausnahme mit Befund.
 
 ### Zusammenspiel mit Automationen
@@ -144,6 +147,9 @@ Protokoll; die mitgelieferte CLI implementiert noch keinen Hintergrunddienst ode
   Rechte und Sichtbarkeit werden nicht aus dem Fortsetzungswunsch abgeleitet.
 - Ein Bearbeiter endet mit fehlgeschlagenen Prüfungen: kein fachlicher Abschluss; begrenzte Nacharbeit oder ein
   belegter Blocker, kein unbeschränktes „continue“.
+- Ein beendeter blockierter Strang wird am nächsten Tag mit derselben alten Rückmeldung vorgefunden: kein
+  Neustart. Erst eine belegte Änderung der Blockierbedingung oder erneute ausdrückliche Beauftragung bzw.
+  Budgetfreigabe erlaubt nach erneutem Abgleich die Wiederaufnahme.
 - Eine vorhandene Fachautomation arbeitet noch: der Dirigent beginnt keine konkurrierende Ausführung.
 
 ## Offen
