@@ -77,4 +77,6 @@ hat.
 
 Wie Notizen, Fotos, Memos und andere Quellen in den Kompass kommen und wer sie einordnet, steht in
 [KONTEXTQUELLEN.md](KONTEXTQUELLEN.md). Kurz: Erfassen schreibt nur ins Register, Einordnen macht Vorschläge,
-übernommen wird erst nach Ja der Person.
+übernommen wird nach Einzelbeauftragung oder im Umfang eines ausdrücklichen Dauermandats. Der Ablauf für
+automatische Übergaben und Fortsetzungen steht dort; das Mandat ersetzt keine Repo-, Datenschutz- oder
+Veröffentlichungsregeln und verändert keine persönlichen Ziele.

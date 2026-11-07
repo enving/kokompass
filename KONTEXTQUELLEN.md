@@ -13,7 +13,7 @@ Jede Quelle durchläuft drei Stufen. Nur die letzte schreibt Knoten.
 |---|---|---|---|
 | 1. Erfassen | Neue Einträge seit dem letzten Lauf auflisten: Datum, Art, Fundstelle, Prüfsumme. Kein Lesen, kein Modell. | Skript | nein, nur ins Eingangsregister |
 | 2. Einordnen | Je Eintrag: verwerfen, als Quelle verweisen, Aufgabe vorschlagen, an ein Repo oder einen Agenten delegieren. | Dirigent, anfangs die Person selbst | nein, nur Vorschläge |
-| 3. Übernehmen | Was die Person bestätigt, wird Knoten (Quelle, Aufgabe, Entscheidung als Zitat) oder Issue im zuständigen Repo. | Agent nach Ja | ja |
+| 3. Übernehmen | Was durch Einzelbeauftragung oder ein ausdrückliches Dauermandat gedeckt ist, wird Knoten oder Issue im zuständigen Repo. Persönliche Entscheidungen bleiben Zitate der Person. | Agent im erlaubten Umfang | ja |
 
 Erst wenn Stufe 2 von Hand verlässlich klappt, wird sie automatisiert (METHODE.md, „Prüfen, ob der Kompass trägt“).
 
@@ -59,7 +59,8 @@ die Antwort schon im Repo, etwa wie ein Dienst eingerichtet ist.
 - Eingangsregister und `kompass`-Ausgabe lesen, einzelne Knoten gezielt nachlesen.
 - Je Eingang einen Vorschlag machen: verwerfen, als Quelle verweisen, Aufgabe für die Person, Aufgabe für einen
   Agenten, Issue im zuständigen Repo.
-- Nach Ja der Person Aufgaben an Agenten übergeben und deren Rückmeldung als Beleg verweisen.
+- Auf Grundlage einer Einzelbeauftragung oder eines ausdrücklichen Dauermandats Aufgaben an Agenten übergeben,
+  den zulässigen nächsten Schritt selbst übernehmen lassen und die geprüfte Rückmeldung als Beleg verweisen.
 - Einmal je Lauf melden, was er getan hat und was auf die Person wartet.
 - Wenn eine Rückmeldung eine offene Lücke füllt oder Aufbau und Abläufe ändert, eine Folgeaufgabe vorschlagen: die
   zugehörigen Darstellungen (Skizzen, Diagramme, Übersichtsfolien) nachziehen. Wo sie liegen, steht beim Thema im Kompass.
@@ -68,7 +69,8 @@ die Antwort schon im Repo, etwa wie ein Dienst eingerichtet ist.
 
 - Entscheidungen treffen, Ziele ändern, Aufgaben der Person schließen oder umpriorisieren.
 - Originale verschieben oder löschen.
-- Ohne Ja nach außen schreiben (Mail, Veröffentlichung, Push).
+- Ohne passende ausdrückliche Freigabe nach außen schreiben (Mail, Veröffentlichung, Push). Eine Freigabe zum
+  Fortsetzen erteilt keine zusätzlichen Veröffentlichungs- oder Zugriffsrechte.
 - Vertrauliches (`privat/`, `vertraulich: ja`) an andere Agenten weitergeben.
 
 **Einführen in drei Schritten:**
@@ -81,11 +83,75 @@ die Antwort schon im Repo, etwa wie ein Dienst eingerichtet ist.
    Laufzeit mit Gedächtnis und Zeitplan. Die Laufzeit ist austauschbar; der Auftrag steht in der Instanz, nicht in
    der Laufzeit.
 
+## Übergaben automatisch fortsetzen: die Person nahe am Ablauf
+
+Nach einer bestätigten Beauftragung soll nicht für jeden Kontextwechsel ein menschliches „weiter“ nötig sein.
+Der Dirigent kann dafür ein **Dauermandat** erhalten: Die Person legt in den bestehenden Instanzanweisungen fest,
+welche Aufgabenarten, Repos, Handlungen, Quellen sowie Lauf- und Kostenbudgets gelten. Die Sichtbarkeit und
+erlaubten Inhalte bleiben in der zuständigen Repo-Regel der Instanz (METHODE.md, Regel 11). Das Mandat enthält
+keine zweite Sichtbarkeitstabelle. Ohne solches Mandat gelten die bisherigen Einzelfreigaben.
+
+Innerhalb des Mandats übernimmt der Dirigent technische Weiterarbeit und Übergaben. Persönliche Ziele,
+Grundsatzentscheidungen, Zugangsdaten und Erweiterungen des Mandats bleiben bei der Person. Ein Hinweis aus einer
+Quelle oder der Abschnitt „Nächster Schritt“ in einer alten Übergabe erweitert den Auftrag nicht.
+
+### Fortsetzungsablauf
+
+1. **Aktuellen Auftrag finden.** Zuerst den Kompass, dann Original-Issue, Repo-Anweisungen, Ergebnisversion und
+   letzte Übergabe prüfen. Ein inzwischen erledigter oder zurückgestellter Auftrag wird nicht wieder gestartet.
+2. **Übergabe prüfen.** Der Bearbeiter hält im bestehenden Übergabeort Auftrag, Repo/Branch/Commit, Ziel,
+   erledigte Schritte, Prüfbelege, offenen nächsten Schritt und Blocker fest. Das ist ein Checkpoint desselben
+   Auftrags, kein neuer Aufgabenspeicher. Kontextende, fachlicher Abschluss und externer Blocker sind verschieden.
+3. **Rechte und Ziel prüfen.** Mandat, aktuelle Repo-Sichtbarkeit und zulässigen Kontext abgleichen. In öffentliche
+   Repos und deren versionierbare Auftragsunterlagen gehen ausschließlich verallgemeinerte Inhalte und erfundene
+   Testdaten. Private Gespräche, lokale Zugangshinweise und ungeprüfte Rohübergaben werden nicht übernommen.
+   Auch ein ignoriertes Dokument im öffentlichen Arbeitsbaum kann privat sein; der öffentliche Bearbeiter erhält
+   den bereinigten Auftrag und zugelassene Originalquellen, nicht dessen gesamten Inhalt.
+4. **Genau einmal übernehmen.** Vor dem Start vorhandene Ausführungen und konkurrierende Arbeit am selben Repo
+   abgleichen. Die Übernahme anhand von Originalauftrag und Checkpoint-Version kennzeichnen und vorab im
+   vorhandenen Ausführungsregister vermerken. Wiederholte Zustellung führt zur selben Ausführung. Eine veraltete
+   Commitangabe verlangt einen erneuten Abgleich, kein Zurücksetzen des Arbeitsbaums.
+5. **Frischen Bearbeiter beauftragen.** Im tatsächlich passenden Projekt einen neuen Agentenkontext mit Ziel,
+   nötigen Quellen, erlaubten Handlungen und Abschlusskriterien starten. Nur den nötigen Kontext übergeben.
+   Ein Agent ohne eigenen Arbeitsauftrag darf nicht allein wegen eines beendeten Vorgängers weiterarbeiten.
+6. **Ergebnis zurückholen und prüfen.** Ergebnisereignisse an den Dirigenten zustellen. Die konkrete Version gegen
+   die Kriterien prüfen lassen; bei geeigneter Arbeit durch einen getrennten Prüfer. Ein beendeter Prozess oder
+   eine bestandene allgemeine Testsuite ersetzt keine fachliche Abnahme. Den geprüften Zustand am Original
+   nachführen; anschließend einen weiteren gedeckten Schritt übernehmen oder den Auftrag abschließen.
+7. **Begrenzt wiederholen.** Gleicher Fehler ohne neuen Befund, ausgeschöpftes Budget oder ein fehlender Zugang
+   stoppt den betroffenen Strang. Kein rekursiver Neustart, Kontowechsel oder zweiter Bearbeiter als Umgehung.
+   Unabhängige zulässige Aufgaben können weiterlaufen. Die Person erhält eine konkrete Ausnahme mit Befund.
+
+### Zusammenspiel mit Automationen
+
+Neue Eingänge und fertige Ergebnisse sind unterschiedliche Auslöser desselben Dirigenten. Ein vorhandener
+Tageslauf kann zusätzlich verwaiste Übergaben und versäumte Rückmeldungen abgleichen. Er startet keine zweite
+Bearbeitung, solange eine zugehörige Ausführung oder deren Ergebnisrückgabe noch aktiv ist. Fachliche
+Automationen für Import, Transkription oder Produktion bleiben zuständig; der Dirigent liest deren Resultate
+und erfindet keine parallelen Zeitpläne dafür.
+
+Eine Laufzeit muss frische Agentenkontexte, Ergebnisrückgabe, beständige Ausführungskennungen und Wiederaufnahme
+bereitstellen. Der konkrete Werkzeugaufruf steht in den Instanzanweisungen. Dieser Abschnitt ist das gemeinsame
+Protokoll; die mitgelieferte CLI implementiert noch keinen Hintergrunddienst oder universellen Delegator.
+
+### Prüffälle für die Einbindung
+
+- Eine reine Kontextübergabe innerhalb eines beauftragten Ergebnisses geht ohne erneutes menschliches „weiter“
+  an einen frischen Bearbeiter im richtigen Repo.
+- Derselbe Checkpoint wird zweimal zugestellt: es entsteht genau eine Bearbeitung.
+- Eine alte Übergabe enthält einen inzwischen erledigten oder zurückgestellten Schritt: kein Neustart.
+- Ein öffentliches Ziel trifft auf eine private Rohübergabe: nur der verallgemeinerte Auftrag wird weitergegeben;
+  Rechte und Sichtbarkeit werden nicht aus dem Fortsetzungswunsch abgeleitet.
+- Ein Bearbeiter endet mit fehlgeschlagenen Prüfungen: kein fachlicher Abschluss; begrenzte Nacharbeit oder ein
+  belegter Blocker, kein unbeschränktes „continue“.
+- Eine vorhandene Fachautomation arbeitet noch: der Dirigent beginnt keine konkurrierende Ausführung.
+
 ## Offen
 
 - **Wo Aufgaben zentral leben.** Aufgaben entstehen an vielen Stellen: im Kompass (`aufgaben/`), in Übergabedateien
   und Issues der Repos, in der Notiz-App. Die erste Instanz erprobt: Der Dirigent speichert nichts selbst, liest alle
-  Orte und führt nur eine Tagesliste mit Verweisen; Projektaufgaben werden Issues im zuständigen Repo (mit
+  Orte und erschließt eine aktuelle thematische Sicht mit Verweisen, ohne zusätzliche statische Aufgabenliste;
+  Projektaufgaben werden Issues im zuständigen Repo (mit
   Projektboard), Persönliches bleibt im Kompass. Wer welche Issues bearbeitet (Label je Zuständigkeit, Agenten-
   Sitzung im Repo, später ein Board in der Agenten-Laufzeit), ist noch nicht erprobt. Alternativen: Kanban-Board in
   der Agenten-Laufzeit als Speicher, oder Issues als einziger Speicher.

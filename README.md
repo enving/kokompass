@@ -68,6 +68,10 @@ wenn der Code wächst. Noch nicht enthalten, weil an die erste Instanz gebunden:
 Lagebild-Bericht, Export. Die erste Instanz stellt erst auf dieses Repo um; was sich dabei als allgemein erweist,
 kommt per PR hierher.
 
+Das [Fortsetzungsprotokoll](KONTEXTQUELLEN.md#übergaben-automatisch-fortsetzen-die-person-nahe-am-ablauf)
+beschreibt Dauermandat, frische Bearbeiter, Ergebnisprüfung und die Grenze zwischen öffentlichen und privaten
+Quellen. Die konkrete Laufzeitintegration und automatische Ergebnisrückgabe sind damit noch nicht ausgeliefert.
+
 ## Die Ko-Familie
 
 kokompass gehört zur Ko-Familie von Digitalalchemisten, offene Werkzeuge für Arbeit mit KI:
