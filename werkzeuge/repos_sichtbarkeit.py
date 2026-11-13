@@ -39,7 +39,7 @@ def main(argv):
         zeilen.append(f"| {sicht} | `{r['name']}` | {hinweis} |")
     zeilen += ["", ""]
     REGELN.write_text(text.replace(alt, "\n".join(zeilen)), encoding="utf-8")
-    print(f"rules.md: {len(repos)} Repos geschrieben")
+    print(f"{REGELN.name}: {len(repos)} Repos geschrieben")
     return 0
 
 

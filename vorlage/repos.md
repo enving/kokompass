@@ -11,3 +11,13 @@ visibility`), ob es öffentlich ist. Regel: METHODE.md Nr. 11 im eingebundenen k
 |---|---|---|---|
 | (dieser Kompass) | privat | alles Persönliche außer `privat/` | Zugangsdaten |
 | kokompass | öffentlich | Verallgemeinertes, erfundene Beispiele | Inhalte dieses Kompass |
+
+## Alle Repos des eigenen Kontos
+
+Optionaler Originalabgleich mit `python3 kern/werkzeuge/repos_sichtbarkeit.py --besitzer <Konto>`.
+
+<!-- repos:start -->
+
+Noch kein GitHub-Abgleich ausgeführt.
+
+<!-- repos:ende -->
