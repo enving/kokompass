@@ -32,7 +32,55 @@ Erst wenn Stufe 2 von Hand verlässlich klappt, wird sie automatisiert (METHODE.
 6. **Jede Quelle steht im Register** (`kontextquellen.md` der Instanz): was, wie erreichbar, welches Zeitfenster,
    welche Auswahl, wer einordnet, letzter Lauf. Eine Quelle ohne Eintrag ist nicht angebunden.
 
-## Typische Quellen
+## Laufzeit der eigenen Instanz
+
+Die gemeinsamen Werkzeuge lesen Instanzwerte aus der Frontmatter von `kontextquellen.md`.
+Eine leere Vorlage konfiguriert keine externen Quellen. Ein Pfad ist ein Zugangshinweis, keine Freigabe
+zum Lesen aller Inhalte oder zur Bearbeitung von Aufgaben. Relative Pfade beziehen sich auf die Instanz;
+`~` bezeichnet das eigene Benutzerverzeichnis. `KOMPASS_DIR` wählt die Instanz, `KOMPASS_VAULT` kann
+deren Vault-Pfad für einen einzelnen Aufruf überschreiben.
+
+| Feld | Verwendung |
+|---|---|
+| `vault_pfad` | Optionaler Obsidian-Vault für Eingang, Wiki-Pflege und Export |
+| `repo_wurzeln` | Liste ausgewählter Ordner, deren direkte Git-Repos erfasst werden |
+| `repo_pfade` | Zusätzliche einzelne Repo-Pfade, auch für eine Meldung fehlender Arbeitsbäume |
+| `eingang_movies`, `eingang_downloads`, `eingang_zulieferer` | Optionale Ordner für direkte Dateierfassung |
+| `studio_wurzel` | Optionaler Projektbereich für Aufnahme-/Deck-Dateien |
+| `spiegel_ordner`, `spiegel_sperre` | Explizite Ordnerauswahl und Inhaltssperren für den gesonderten Spiegelaufruf |
+| `github_aktiv` | `ja` aktiviert den lesenden GitHub-Abgleich bei Kontext- und Gesamtabfragen |
+| `github_workflow_repos`, `github_fehler_conclusions` | Auswahl einzelner Workflow-Ereignisse und Fehlerzustände |
+| `github_speicher_grenze_bytes` | Zum eigenen Tarif passende Schwelle der Speicherwarnung |
+| `immich_url` | Optionaler lokaler Gesundheitsendpunkt; kein Medienimport |
+| `notebook_id` | Ausgewähltes Notebook für den Vergleich eines autorisiert gelieferten Inventars |
+| `projekt_aliases` | Liste `Präfix=Projekt` zur Gruppierung vorhandener Registereinträge |
+| `privates_git_repo` | Erlaubtes `Konto/Repo` des optionalen privaten Push-Schutzes; ohne Angabe gesperrt |
+| `regeln_datei` | Zuständige Sichtbarkeitsliste für deren ausdrücklich aufgerufene GitHub-Aktualisierung |
+| `stand_datei` | Ziel für `kompass datei`, wenn der Aufruf keinen Pfad angibt |
+| `okf_pruefer` | Optionaler installierter OKF-Prüfer für `kompass validieren` |
+| `stt_api_pfad` | Optionaler vorhandener lokaler Spracherkennungsadapter |
+| `output_ziel` | Optionaler ausdrücklich gesetzter Bezugspunkt für den Output-Bericht |
+
+Wiki-/Medienverarbeitung hat ihre bestehende Konfiguration in `werkzeuge/wiki-pflege.json`;
+eine unbefüllte Instanz verwendet die mitgelieferte Vorlage. Dort stehen Modellwahl, ausgeschaltete
+Cloudnutzung, Laufbudgets und bei Bedarf `python_stt`, `python_docling`, `doc2md`, `doc2md_health`,
+`voxtral_skript`, `ffmpeg` und `ffprobe`. Schlüssel werden ausschließlich über die Umgebung der
+bereits eingerichteten Werkzeuge bereitgestellt. Fehlende externe Installationen werden gemeldet.
+Kokompass installiert sie nicht und erzeugt keinen kostenpflichtigen Modelltest.
+
+`kompass repos` zeigt vorhandene Verweise samt Projekt-Anweisungen und Übergaben. Beschreibungen
+kommen aus den vorhandenen Knoten mit lokalem `repo`-Feld; sie werden nicht in einer zweiten Liste gepflegt.
+`kompass diagnose` prüft die lokale Einrichtung lesend. Host-Zeitpläne, Logins und tatsächliche Modellqualität
+sind dadurch nicht geprüft.
+
+Das maßgebliche Fortsetzungsregister bleibt `.zustand/eingaenge.json`. Ein frischer Scan erzeugt es pausiert.
+`db-import` spiegelt es nur nach SQLite, `weiter` liest die JSON direkt. Git enthält diesen lokalen Zustand
+nicht: Er braucht eine eigene Sicherung außerhalb der Instanz. Nach Wiederherstellung Originalaufträge,
+aktive Bearbeiter und Checkpoints abgleichen, bevor die Pause aufgehoben wird. Eine Repo-Erfassung oder ein
+erreichbarer Dienst ersetzt diesen Abgleich nicht. Die Host-Anbindung richtet die Person ausdrücklich ein;
+die gemeinsamen Werkzeuge legen keinen Zeitplan an.
+
+## Beispiele für Quellen
 
 | Quelle | Gute Auswahl | Erfassen über | Vorsicht |
 |---|---|---|---|
