@@ -5,7 +5,7 @@ import subprocess
 import sys
 from urllib.parse import urlsplit
 
-from konfiguration import wurzel, felder, pfad, vault_pfad
+from konfiguration import wurzel, felder, pfad, vault_pfad, lokaler_repo_pfad
 from kern_adapter import lade_kern
 import wissen
 
@@ -14,8 +14,9 @@ def repos():
     beschreibung = {}
     for node in lade_kern(wissen.ROOT).laden().values():
         value = node['fm'].get('repo')
-        if isinstance(value, str) and value and not value.startswith(('https://', 'http://', 'git@')):
-            beschreibung[str(pfad(value, wissen.ROOT))] = node['fm'].get('description') or node['fm'].get('title')
+        local = lokaler_repo_pfad(value, wissen.ROOT)
+        if local is not None:
+            beschreibung[str(local)] = node['fm'].get('description') or node['fm'].get('title')
     result = []
     for repo in wissen.repo_paths():
         item = {'pfad': str(repo), 'zweck': beschreibung.get(str(repo), 'nicht beschrieben'),

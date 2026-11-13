@@ -15,7 +15,7 @@ import subprocess
 from urllib.parse import quote
 
 from eingang import atomic, digest
-from konfiguration import wurzel, felder, pfad, vault_pfad
+from konfiguration import wurzel, felder, pfad, vault_pfad, lokaler_repo_pfad
 
 ROOT = wurzel()
 HOME = Path.home()
@@ -42,7 +42,7 @@ def repo_paths():
     for node in lade_kern(ROOT).laden().values():
         value = node['fm'].get('repo')
         if isinstance(value, str):
-            path = pfad(value, ROOT) if not value.startswith(('https://', 'http://', 'git@')) else None
+            path = lokaler_repo_pfad(value, ROOT)
             if path is not None and path.resolve() != ROOT.resolve():
                 roots.add(path.resolve())
     return sorted(roots)

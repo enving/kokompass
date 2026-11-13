@@ -27,3 +27,10 @@ def pfad(value, root=None):
 def vault_pfad(root=None):
     value = os.environ.get('KOMPASS_VAULT') or felder(root).get('vault_pfad')
     return pfad(value, root) if value else None
+
+
+def lokaler_repo_pfad(value, root=None):
+    if not isinstance(value, str) or not value or value.startswith(
+            ('https://', 'http://', 'ssh://', 'git://', 'git@', 'github.com/')):
+        return None
+    return pfad(value, root)

@@ -103,6 +103,15 @@ class NavigationTest(unittest.TestCase):
                                 env={**os.environ, 'KOMPASS_DIR': str(self.root)}, capture_output=True, text=True)
         self.assertEqual(result.returncode, 2)
 
+    def test_remote_reference_is_not_a_missing_local_directory(self):
+        (self.root / 'belege').mkdir(exist_ok=True)
+        for index, reference in enumerate(['github.com/beispiel/werkstatt',
+                                           'https://github.com/beispiel/werkstatt',
+                                           'git@github.com:beispiel/werkstatt.git']):
+            (self.root / f'belege/remote-{index}.md').write_text(
+                '---\ntype: Beleg\nrepo: ' + reference + '\n---\n')
+        self.assertEqual(navigation.repos(), [])
+
 
 if __name__ == '__main__':
     unittest.main()

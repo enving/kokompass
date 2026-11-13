@@ -20,7 +20,7 @@ from collections import defaultdict
 from datetime import date, datetime
 from pathlib import Path
 
-from konfiguration import wurzel, felder, vault_pfad, pfad
+from konfiguration import wurzel, felder, vault_pfad, pfad, lokaler_repo_pfad
 
 ROOT = wurzel()
 VAULT = vault_pfad(ROOT)
@@ -92,7 +92,7 @@ def git(pfad, *args):
 
 def repo_pfad(k):
     r = k["fm"].get("repo")
-    return Path(os.path.expanduser(r)) if isinstance(r, str) and r else None
+    return lokaler_repo_pfad(r, ROOT)
 
 
 def repo_lage(knoten):
