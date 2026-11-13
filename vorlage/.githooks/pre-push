@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -eu
+KOMPASS_DIR="$(git rev-parse --show-toplevel)"
+export KOMPASS_DIR
+exec python3 "$KOMPASS_DIR/kern/werkzeuge/git_schutz.py" "$@"

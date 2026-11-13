@@ -321,31 +321,8 @@ def vorwissen(argv: list[str]) -> int:
 
 # ------------------------------------------------------------------ Aufruf
 def main(argv: list[str]) -> int:
-    befehl = argv[0] if argv else "stand"
-    if befehl in ("hilfe", "-h", "--help"):
-        print(__doc__.strip())
-        return 0
-    if befehl != "vorwissen" and not (WURZEL / "person" / "ich.md").exists():
-        print(f"kompass: kein Kompass in {WURZEL} (person/ich.md fehlt; Ort über KOMPASS_DIR setzen)", file=sys.stderr)
-        return 2
-    if befehl == "stand":
-        print(stand())
-        return 0
-    if befehl == "datei":
-        ziel = Path(argv[1]) if len(argv) > 1 else WURZEL / ".kompass-stand.md"
-        ziel.parent.mkdir(parents=True, exist_ok=True)
-        ziel.write_text("# Kompass — aktueller Stand\n\nErzeugt von `kompass datei`. Nicht von Hand bearbeiten.\n\n```\n"
-                        + stand() + "\n```\n", encoding="utf-8")
-        print(f"geschrieben: {ziel}")
-        return 0
-    if befehl == "sync":
-        return sync()
-    if befehl == "pruefen":
-        return pruefen()
-    if befehl == "vorwissen":
-        return vorwissen(argv[1:])
-    print(f"kompass: unbekannter Befehl '{befehl}' (bekannt: stand datei sync pruefen vorwissen hilfe)", file=sys.stderr)
-    return 2
+    from cli import main as cli_main
+    return cli_main(argv)
 
 
 if __name__ == "__main__":

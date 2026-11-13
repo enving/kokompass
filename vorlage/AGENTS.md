@@ -8,6 +8,10 @@ Hier stehen nur die Abweichungen dieser Instanz.
 3. Sitzungsende: `stand/aktuell.md` überschreiben, `log.md` ergänzen, `kompass sync && kompass pruefen`, eigene
    Dateien committen.
 
+Für Projektarbeit `kompass repos` und gezielt `kompass kontext "<Thema>"` nutzen, danach im Zielrepo dessen
+Anweisungen und Originalauftrag lesen. Quellenkonfiguration: `kontextquellen.md`, Sichtbarkeit: `repos.md`.
+Ein Repo-Verweis oder eine Übergabe ist keine Arbeitsfreigabe. `kompass diagnose` prüft fehlende lokale Pfade.
+
 ## Abweichungen dieser Instanz
 
 - (keine)

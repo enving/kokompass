@@ -1,0 +1,15 @@
+{
+  "provider": "ollama",
+  "model": "",
+  "ziel_provider": "anthropic",
+  "ziel_model": "",
+  "cloud_enabled": false,
+  "modus": "entwurf",
+  "max_dateien_pro_lauf": 3,
+  "max_modellaufrufe_pro_lauf": 8,
+  "chunk_zeichen": 10000,
+  "transkription": false,
+  "stt_provider": "parakeet_lokal",
+  "stt_sprache": "auto",
+  "max_audio_minuten": 60
+}

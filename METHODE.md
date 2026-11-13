@@ -9,6 +9,10 @@ Ein Kompass ist das Gedächtnis einer Person für ihre Agenten: wer sie ist, was
 was offen ist. Er gehört der Person und darf unordentlich sein. Menschen verfolgen mehrere Ziele gleichzeitig, auch
 wenn sie sich reiben. Das ist kein Fehler, den ein Agent beheben muss.
 
+Kokompass stellt das gemeinsame System und eine leere Vorlage bereit. Eine private Instanz verwendet dieselben
+Werkzeuge mit eigenen Inhalten und konfigurierten Quellen. Allgemeine Funktionen werden hier gepflegt;
+persönliche Daten, konkrete Zugänge und die Freigaben der Person bleiben in der Instanz.
+
 Er ist kein Projektarchiv. Hat ein Thema ein eigenes Repo, gehören Doku, Fragen und Aufgaben dorthin (Datei, Issue,
 PR). Im Kompass bleiben der Verweis, die Zitate der Person und ihre Entscheidungen.
 
